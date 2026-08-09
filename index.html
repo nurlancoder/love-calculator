@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="az">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Sevgi Gücü Sınağı — Sevgi Kalkulyatoru</title>
+<meta name="description" content="İki adın hərflərini müqayisə edərək sevgi uyğunluğunu ölçən əyləncəli karnaval maşını.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Mono:wght@400;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="bg-glow" aria-hidden="true"></div>
+  <div class="bg-particles" id="bgParticles" aria-hidden="true"></div>
+
+  <main class="stage">
+
+    <div class="machine">
+
+      <!-- Marquee bulb border -->
+      <div class="marquee marquee-top" aria-hidden="true">
+        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+        <span class="bulb"></span><span class="bulb"></span>
+      </div>
+      <div class="marquee marquee-bottom" aria-hidden="true">
+        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+        <span class="bulb"></span><span class="bulb"></span><span class="bulb"></span><span class="bulb"></span>
+        <span class="bulb"></span><span class="bulb"></span>
+      </div>
+
+      <div class="machine-inner">
+
+        <header class="machine-head">
+          <p class="eyebrow">NV STUDIO KARNAVALI TƏQDİM EDİR</p>
+          <h1 class="title">SEVGİ GÜCÜ<br>SINAĞI</h1>
+          <p class="subtitle">İki adı yaz, çəkici endir, görək neçə güclü zərbə vurursunuz.</p>
+        </header>
+
+        <div class="machine-body">
+
+          <!-- Ticket booth: form -->
+          <form class="booth" id="loveForm" novalidate>
+
+            <div class="field">
+              <label for="nameA">Sənin adın</label>
+              <input type="text" id="nameA" name="nameA" placeholder="Məs: Nurlan" autocomplete="off" maxlength="40" required>
+            </div>
+
+            <div class="field-divider" aria-hidden="true">
+              <span>♥</span>
+            </div>
+
+            <div class="field">
+              <label for="nameB">Tərəf-müqabilin adı</label>
+              <input type="text" id="nameB" name="nameB" placeholder="Məs: Aygün" autocomplete="off" maxlength="40" required>
+            </div>
+
+            <p class="error-msg" id="errorMsg" role="alert" aria-live="assertive"></p>
+
+            <button type="submit" class="hit-btn" id="hitBtn">
+              <span class="hit-btn-label">ÇƏKİCİ ENDİR</span>
+              <span class="hit-btn-sub">Sına & ölç</span>
+            </button>
+
+            <button type="button" class="reset-btn" id="resetBtn" hidden>YENİDƏN SINA</button>
+          </form>
+
+          <!-- High-striker tower -->
+          <div class="tower-wrap">
+            <div class="tower" id="tower" aria-hidden="true">
+              <div class="tower-bell" id="towerBell">🔔</div>
+              <div class="tower-rail">
+                <div class="tower-track"></div>
+                <div class="tower-lights" id="towerLights"></div>
+                <div class="tower-puck" id="towerPuck">❤</div>
+              </div>
+              <div class="tower-base"></div>
+            </div>
+            <p class="tower-caption" id="towerCaption">Gücünü göstər</p>
+          </div>
+
+        </div>
+
+        <!-- Result ticket -->
+        <section class="ticket" id="resultTicket" aria-live="polite" hidden>
+          <div class="ticket-edge" aria-hidden="true"></div>
+          <p class="ticket-eyebrow">RƏSMİ NƏTİCƏ TALONU</p>
+          <p class="ticket-names" id="ticketNames"></p>
+          <p class="ticket-percent"><span id="ticketPercentNum">0</span><span class="pct-sign">%</span></p>
+          <p class="ticket-title" id="ticketTitle"></p>
+          <p class="ticket-desc" id="ticketDesc"></p>
+          <div class="ticket-actions">
+            <button type="button" class="ticket-btn" id="copyBtn">NƏTİCƏNİ KOPYALA</button>
+          </div>
+          <div class="ticket-edge ticket-edge-bottom" aria-hidden="true"></div>
+        </section>
+
+      </div>
+    </div>
+
+    <footer class="page-footer">
+      <p>Yalnız əyləncə üçün hazırlanıb — nəticələr elmi deyil, hərf uyğunluğuna əsaslanır. Əsl sevgi rəqəmlərdən böyükdür 💫</p>
+    </footer>
+
+  </main>
+
+  <div class="confetti-layer" id="confettiLayer" aria-hidden="true"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
